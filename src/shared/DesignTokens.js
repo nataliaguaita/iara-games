@@ -34,11 +34,13 @@ export const FontSizes = {
 	TWO: '16px',
 	THREE: '24px',
 	FOUR: '32px',
+	FIVE: '40px',
 };
 export const FontWeights = {
 	THIN: 300,
 	REGULAR: 400,
 	BOLD: 600,
+	EXTRA_BOLD: 750,
 };
 export const Spaces = {
 	NONE: '0',
@@ -57,6 +59,7 @@ export const Spaces = {
 };
 export const BorderRadiuses = {
 	ONE: '30px',
+	TWO: '5px',
 };
 export const Shadows = {
 	ONE: '0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24)',

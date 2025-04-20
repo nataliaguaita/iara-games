@@ -11,7 +11,7 @@ import {
 } from '../../shared/DesignTokens';
 import BuyIconImg from '../../assets/icons/local_mall.svg';
 import UserIconImg from '../../assets/icons/user.svg';
-const Button = styled.button`
+const ButtonStyled = styled.button`
 	border: none;
 	outline: none;
 	width: auto;
@@ -41,16 +41,20 @@ const Icon = styled.img`
 `;
 
 export function BuyButton(props) {
-    return <Button {...props}>
+    return <ButtonStyled {...props}>
         <Icon src={BuyIconImg} alt="ícone de cesta de compras" />
         {props.children}
-    </Button>
+    </ButtonStyled>
 
 };
 export function UserButton(props) {
-    return <Button {...props}>
+    return <ButtonStyled {...props}>
         <Icon src={UserIconImg} alt="ícone de usuário" />
         {props.children}
-    </Button>
+    </ButtonStyled>
 
 };
+
+export function Button(props) {
+    return <ButtonStyled {...props}/>
+}
