@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { Search } from './screens/Search';
+import { NotFound } from './screens/NotFound';
+import { Home } from './screens/Home';
+import { NormalizeStyles } from './shared/NomalizeStyles';
+import { NavBar } from './components/NavBar/NavBar';
 
-function App() {
+export function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NormalizeStyles />
+      <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/pesquisa" element={<Search />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+    </>
   );
 }
-
-export default App;
