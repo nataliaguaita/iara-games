@@ -1,46 +1,73 @@
 import React from 'react';
-import { Box, Typography, TextField, Button } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import styled from 'styled-components';
-import { Gradient } from '../../shared/DesignTokens'; // ajuste se necessário
+import { MdAlternateEmail } from 'react-icons/md'; // <-- Ícone de @
+import { Gradient, Colors, BorderRadiuses, Spaces, FontSizes, FontWeights, Shadows } from '../../shared/DesignTokens';
 
 const SectionWrapper = styled(Box)`
     padding: 100px;
     display: flex;
     justify-content: center;
-`;
+    `;
 
 const ContentBox = styled(Box)`
     max-width: 900px;
     width: 100%;
     text-align: center;
     color: white;
-`;
+    `;
 
-const EmailInput = styled(TextField)`
-    && {
-        background-color: white;
-        border-radius: 8px;
-        margin-bottom: 16px;
-        width: 100%;
+const InputWrapper = styled(Box)`
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    `;
+
+const EmailIcon = styled(MdAlternateEmail)`
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 20px;
+    `;
+
+const EmailInput = styled.input`
+    width: 100%;
+    height: 45px;
+    padding: 0 16px 0 45px; /* padding-left maior por causa do ícone */
+    font-size: 18px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+
+    &::placeholder {
+        font-size: 16px;
+        color: #999;
     }
-`;
+    `;
 
-const SubmitButton = styled(Button)`
-    && {
-        background: ${Gradient.BR_2};
-        color: white;
-        text-transform: none;
-        font-weight: bold;
-        border-radius: 8px;
-        padding: 12px 24px;
-        width: 100%;
-        transition: 0.3s;
+const SubmitButton = styled.button`
+    width: 30%;
+    height: 45px;
+    align-self: center;
+    background: ${Gradient.BR};
+    color: ${Colors.BRANCO};
+    border: none;
+    border-radius: ${BorderRadiuses.TWO};
+    padding: ${Spaces.ONE} ${Spaces.TWO};
+    cursor: pointer;
+    font-size: ${FontSizes.TWO};
+    font-weight: ${FontWeights.BOLD};
+    box-shadow: ${Shadows.ONE};
+    margin-top: ${Spaces.TWO};
+    margin-right: ${Spaces.TWO};
+    transition: background-color 0.3s;
 
-        &:hover {
-            opacity: 0.9;
-        }
+    &:hover {
+        background: ${Colors.AZUL_ESCURO};
     }
-`;
+    `;
 
 const NewsLetterSection = () => {
     return (
@@ -54,16 +81,16 @@ const NewsLetterSection = () => {
                     Receba novidades direto no seu e-mail e apoie o crescimento da cena gamer nacional!
                 </Typography>
 
-                <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                    <EmailInput
-                        placeholder="Digite seu e-mail"
-                        variant="filled"
-                        type="email"
-                        required
-                    />
-                    <SubmitButton type="submit">
-                        Quero Receber
-                    </SubmitButton>
+                <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'center' }}>
+                    <InputWrapper>
+                        <EmailIcon />
+                        <EmailInput
+                            placeholder="escreva seu e-mail"
+                            type="email"
+                            required
+                        />
+                    </InputWrapper>
+                    <SubmitButton type="submit">Quero Receber</SubmitButton>
                 </Box>
             </ContentBox>
         </SectionWrapper>
