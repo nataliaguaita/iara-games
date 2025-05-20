@@ -3,11 +3,12 @@ import { Box, Tabs, Tab } from '@mui/material';
 import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
 import ManifestoMap from '../assets/images/manifestmap.png';
-import { PlayerLogin } from '../components/Auth/PlayerLogin';
-import { PlayerRegister } from '../components/Auth/PlayerRegister';
+import { DevLogin } from '../components/Auth/DevLogin';
+import { DevRegister } from '../components/Auth/DevRegister';
 import { Colors, Gradient } from '../shared/DesignTokens';
 
 const SectionWrapper = styled(Box)`
+    margin-top: 60px;
     width: 100%;
     height: 100%;
     position: relative;
@@ -70,7 +71,7 @@ const CustomTab = styled((props) => <Tab disableRipple {...props} />)`
   }
 `;
 
-export function PlayerAuthPage() {
+export function DevAuthPage() {
     const location = useLocation();
     const [tab, setTab] = useState(0); // 0 = login, 1 = cadastro
 
@@ -90,7 +91,7 @@ export function PlayerAuthPage() {
                     <CustomTab label="ENTRAR" sx={{ color: Colors.BRANCO }} />
                     <CustomTab label="CADASTRAR" sx={{ color: Colors.BRANCO }} />
                 </CustomTabs>
-                {tab === 0 ? <PlayerLogin /> : <PlayerRegister />}
+                {tab === 0 ? <DevLogin /> : <DevRegister />}
             </ContentWrapper>
         </SectionWrapper>
     );

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // 👈 Importa o hook de navegação
 import { Menu, MenuItem, Divider, styled as muiStyled } from '@mui/material';
 import styled from 'styled-components';
 import UserIconImg from '../../assets/icons/user.svg';
@@ -38,7 +39,6 @@ const Icon = styled.img`
     height: 20px;
 `;
 
-// 🧱 Custom Menu
 const CustomMenu = muiStyled(Menu)(({ theme }) => ({
 	marginTop: '20px',
 	'& .MuiPaper-root': {
@@ -56,9 +56,12 @@ const CustomMenuItem = muiStyled(MenuItem)({
 	textTransform: 'uppercase',
 	fontWeight: 500,
 	letterSpacing: '1px',
+	padding: '15px 20px',
+	'&:hover': {
+		backgroundColor: 'rgba(255, 255, 255, 0.1)',
+	},
 });
 
-// 🔹 Custom Divider
 const CustomDivider = muiStyled(Divider)({
 	backgroundColor: '#8F8F8F',
 	height: '1px',
@@ -68,15 +71,16 @@ const CustomDivider = muiStyled(Divider)({
 export function LoginMenu() {
 	const [anchorEl, setAnchorEl] = useState(null);
 	const open = Boolean(anchorEl);
+	const navigate = useNavigate(); // 👈 Hook do react-router
 
 	const handleClick = (event) => {
 		setAnchorEl(event.currentTarget);
 	};
 
-	const handleClose = (type) => {
+	const handleClose = (route = null) => {
 		setAnchorEl(null);
-		if (type) {
-			console.log(`Redirecionar para login de ${type}`);
+		if (route) {
+			navigate(route); // 👈 Redireciona para a rota correspondente
 		}
 	};
 
@@ -89,13 +93,25 @@ export function LoginMenu() {
 			<CustomMenu
 				anchorEl={anchorEl}
 				open={open}
-				onClose={() => handleClose(null)}
+				onClose={() => handleClose()}
 				anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
 				transformOrigin={{ vertical: 'top', horizontal: 'right' }}
 			>
-				<CustomMenuItem onClick={() => handleClose('usuario')}>Login como Usuário</CustomMenuItem>
+				<CustomMenuItem onClick={() => handleClose('/login/player')}>
+					Entrar como Jogador
+				</CustomMenuItem>
+				<CustomMenuItem onClick={() => handleClose('/register/player')}>
+					Cadastrar como Jogador
+				</CustomMenuItem>
+
 				<CustomDivider />
-				<CustomMenuItem onClick={() => handleClose('desenvolvedor')}>Login como Desenvolvedor</CustomMenuItem>
+
+				<CustomMenuItem onClick={() => handleClose('/login/dev')}>
+					Entrar como Dev / Estúdio
+				</CustomMenuItem>
+				<CustomMenuItem onClick={() => handleClose('/register/dev')}>
+					Cadastrar como Dev / Estúdio
+				</CustomMenuItem>
 			</CustomMenu>
 		</>
 	);

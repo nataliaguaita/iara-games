@@ -5,10 +5,14 @@ import { BuyButton } from '../Button/Button';
 import { LinkNavBar } from '../ButtonLink/LinkNavBar';
 import { SearchField } from '../SearchField/SearchField';
 import { LoginMenu } from '../Menu/LoginMenu';
+
 const Nav = styled.nav`
 	width: 100%;
 	height: 60px;
 	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999; /* Garante que a NavBar fique acima de todo o conteúdo */
 	background-color: ${Colors.CINZA_ESCURO};
 	padding: ${Spaces.TWO};
 	display: flex;
@@ -16,7 +20,7 @@ const Nav = styled.nav`
 	align-items: center;
 
 	@media (min-width: 1024px) {
-    height: 65px;
+		height: 65px;
 	}
 `;
 
@@ -40,7 +44,7 @@ export function NavBar() {
 				<LinkNavBar>Categorias de Jogos</LinkNavBar>
 				<LinkNavBar>Publique seu Jogo</LinkNavBar>
 				<LinkNavBar>Sobre Iara</LinkNavBar>
-				<SearchField placeholder='Buscar Jogos' />
+				<SearchField placeholder="Buscar Jogos" />
 				<BuyButton>Carrinho</BuyButton>
 				<LoginMenu>Entrar</LoginMenu>
 			</ButtonsWrapper>

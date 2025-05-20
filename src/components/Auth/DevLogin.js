@@ -11,7 +11,7 @@ const Container = styled(Box)`
     border: 1px solid #8f8f8f;
     padding: 50px;
     width: 550px;
-    height: 100%;
+    height: 500px;
     border-radius: 5px;
     `;
 
@@ -63,25 +63,23 @@ const ButtonWrapper = styled(Box)`
     gap: 16px;
     `;
 
-export function PlayerRegister() {
+export function DevLogin() {
     return (
         <Container>
             <LogoWrapper>
                 <IaraLogo src={Logo} alt="Iara Games Logo" />
                 <Typography variant="h5" color="white" ml={2} fontWeight="bold" letterSpacing={1}>
-                    PARA JOGADORES
+                    PARA DESENVOLVEDORS
                 </Typography>
             </LogoWrapper>
-            <TextFieldStyled fullWidth color="dark" label="Nome do usuário" margin="normal" />
-            <TextFieldStyled fullWidth color="dark" label="Email do usuário" type="email" margin="normal"/>
+            <TextFieldStyled fullWidth color="dark" label="Email" type="email" margin="normal"/>
             <TextFieldStyled  fullWidth color="dark" label="Senha" type="password" margin="normal"/>
-            <TextFieldStyled fullWidth color="dark" label="Confirmar senha" type="password" margin="normal" />
             <ButtonWrapper>
                 <ButtonPrimary>
-                    Fazer Cadastro
+                    Entrar
                 </ButtonPrimary>
                 <ButtonLinkStyled color={Colors.AMARELO} mt={2} fontSize="16px" fontWeight="bold">
-                    JÁ TENHO UMA CONTA
+                    ESQUECI MINHA SENHA
                 </ButtonLinkStyled>
             </ButtonWrapper>
         </Container>
