@@ -60,8 +60,8 @@ export default function GameCarousel() {
     };
 
     return (
-        <Box my="100px" mx="auto" width="100%"> 
-            <Box my="100px" position="relative" width="100%" overflow="hidden" px={10}>
+        <Box  sx={{ px: 10, color: "#fff" }}> 
+            <Box my="100px" position="relative" width="100%" overflow="hidden" px={10} >
             <HeadingTwo>JOGOS EM DESTAQUE</HeadingTwo>
                 <IconButton
                     onClick={() => scroll('left')}
@@ -76,6 +76,7 @@ export default function GameCarousel() {
                     sx={{
                         display: 'flex',
                         overflowX: 'auto',
+                        mt: 4,
                         scrollSnapType: 'x mandatory',
                         gap: 2,
                         px: `calc(50% - ${CARD_WIDTH / 2}px)`,

@@ -85,7 +85,7 @@ const DestaqueCarousel = () => {
     }, []);
 
     return (
-        <Box sx={{ p: 10, color: "#fff" }}>
+        <Box sx={{ p: 15, color: "#fff" }}>
             <Box sx={{ mb: "50px" }}>
                 <HeadingTwo>JOGOS MAIS VENDIDOS</HeadingTwo>
             </Box>

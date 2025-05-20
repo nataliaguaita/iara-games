@@ -14,7 +14,8 @@ export const Colors = {
 };
 export const Gradient = {
 	BR: "linear-gradient(-80.97deg, rgba(255, 186, 0, 0.83) 0px, rgba(0, 122, 51, 0.83) 202.5px, rgba(30, 26, 120, 0.83) 462.5px)",
-};
+	BR_2: "linear-gradient(-80.97deg, rgba(255, 187, 0, 0.79) 0px, rgba(0, 122, 51, 0.83) 410px, rgba(30, 26, 120, 0.83) 930px)",
+};	
 export const FontFamilies = {
 	PRIMARY: "Poppins, Roboto, sans-serif",
 };

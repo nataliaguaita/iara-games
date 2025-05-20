@@ -10,7 +10,7 @@ export const HeadingTwo = styled.h2`
 	font-family: ${FontFamilies.PRIMARY};
 	font-weight: ${FontWeights.BOLD};
 	line-height: ${FontLineHeights.MEDIUM};
-	font-size: ${FontSizes.THREE};
+	font-size: ${FontSizes.TWO_HALF};
 	color: ${Colors.BRANCO};
 	margin: 0;
 	padding: 0;
