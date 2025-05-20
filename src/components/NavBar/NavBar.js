@@ -4,6 +4,7 @@ import IaraGamesLogo from '../../assets/images/logo-branco-iara.png';
 import { BuyButton, UserButton } from '../Button/Button';
 import { LinkNavBar } from '../ButtonLink/LinkNavBar';
 import { SearchField } from '../SearchField/SearchField';
+import { LoginMenu } from '../Menu/LoginMenu';
 const Nav = styled.nav`
 	width: 100%;
 	height: 60px;
@@ -41,7 +42,7 @@ export function NavBar() {
 				<LinkNavBar>Sobre Iara</LinkNavBar>
 				<SearchField placeholder='Buscar Jogos' />
 				<BuyButton>Carrinho</BuyButton>
-				<UserButton ghost>Entrar</UserButton>
+				<LoginMenu>Entrar</LoginMenu>
 			</ButtonsWrapper>
 		</Nav>
 	);
