@@ -6,17 +6,20 @@ import { Home } from './screens/Home';
 import { NormalizeStyles } from './shared/NomalizeStyles';
 import { NavBar } from './components/NavBar/NavBar';
 import "./App.css";
-
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "./shared/theme";
 export function App() {
   return (
     <>
       <NormalizeStyles />
+      <ThemeProvider theme={theme}>
         <NavBar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/pesquisa" element={<Search />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+      </ThemeProvider>          
     </>
   );
 }

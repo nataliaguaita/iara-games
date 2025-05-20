@@ -1,22 +1,22 @@
 export const Colors = {
-    VERDE_ESCURO: '#005B26',
-    VERDE_MEDIO: '#007A33',
-    VERDE_CLARO: '#4CAF50',
-    AMARELO_ESCURO: '#FFBA00',
-    AMARELO_MEDIO: '#F8D936',
-    AMARELO_CLARO: '#F3E777',
-    AZUL_ESCURO: '#1E1A78',
-    AZUL_MEDIO: '#3E4095',
-    AZUL_CLARO: '#7986CB',
-    CINZA_ESCURO: '#252525',
-    CINZA_MEDIO: '#8F8F8F',
-    BRANCO: '#F5F5F5',
+	VERDE_ESCURO: '#005B26',
+	VERDE_MEDIO: '#007A33',
+	VERDE_CLARO: '#4CAF50',
+	AMARELO_ESCURO: '#FFBA00',
+	AMARELO_MEDIO: '#F8D936',
+	AMARELO_CLARO: '#F3E777',
+	AZUL_ESCURO: '#1E1A78',
+	AZUL_MEDIO: '#3E4095',
+	AZUL_CLARO: '#7986CB',
+	CINZA_ESCURO: '#252525',
+	CINZA_MEDIO: '#8F8F8F',
+	BRANCO: '#F5F5F5',
 };
 export const Gradient = {
-    BR: "linear-gradient(-80.97deg, rgba(255, 186, 0, 0.83) 0px, rgba(0, 122, 51, 0.83) 202.5px, rgba(30, 26, 120, 0.83) 462.5px)",
+	BR: "linear-gradient(-80.97deg, rgba(255, 186, 0, 0.83) 0px, rgba(0, 122, 51, 0.83) 202.5px, rgba(30, 26, 120, 0.83) 462.5px)",
 };
 export const FontFamilies = {
-    PRIMARY: "Poppins, Roboto, sans-serif",
+	PRIMARY: "Poppins, Roboto, sans-serif",
 };
 export const FontLetterSpacings = {
 	SMALL: '0.5px',
