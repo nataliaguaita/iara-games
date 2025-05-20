@@ -1,6 +1,11 @@
 # 🎮 Iara Games
 
-**Repositório oficial do projeto Iara Games** — uma plataforma web para compra e venda de jogos desenvolvidos por empresas brasileiras.
+**Repositório oficial do projeto Iara Games — uma plataforma web para compra e venda de jogos desenvolvidos por empresas brasileiras.
+Este é um projeto acadêmico desenvolvido no curso de Web Design da FIAP, com o objetivo de aplicar na prática conceitos de front-end, design de interface e usabilidade.
+
+## 🔗 Acesse o Projeto
+
+👉 [Clique aqui para acessar o Iara Games na Vercel](https://iara-games-gamma.vercel.app/)
 
 ## 👥 Equipe
 
@@ -16,8 +21,8 @@ O Iara Games é uma aplicação web criada com o objetivo de valorizar o mercado
 
 - HTML, CSS e JavaScript  
 - React (frontend)  
-- Java (backend)  
-- Firebase (autenticação e banco de dados)  
+- Formik e Yup
+- MUI
 - Figma (protótipos e design da interface)
 
 ## 🚧 Funcionalidades em Desenvolvimento
@@ -47,8 +52,6 @@ O Iara Games é uma aplicação web criada com o objetivo de valorizar o mercado
   ```bash
   npm start
   ```
-
-⚠️ Certifique-se de ter o Node.js instalado e de configurar corretamente o backend Java e o Firebase.
 
 📌 Status
 🚧 Em desenvolvimento.
