@@ -8,11 +8,11 @@ export function Home() {
     return (
     <>
         <HeroSection />
-            <GameCarousel />
-            <DestaqueCarousel />
-            <CtaSection />
-            <ManifestoSection />
-            <NewsLetterSection />
+        <GameCarousel />
+        <DestaqueCarousel />
+        <CtaSection />
+        <ManifestoSection />
+        <NewsLetterSection />
     </>
     );
 }
