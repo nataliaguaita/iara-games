@@ -11,10 +11,7 @@ export const HeadingTwo = styled.h2`
 	font-weight: ${FontWeights.BOLD};
 	line-height: ${FontLineHeights.MEDIUM};
 	font-size: ${FontSizes.THREE};
-	color: ${(props) => props.color};
+	color: ${Colors.BRANCO};
 	margin: 0;
 	padding: 0;
 `;
-HeadingTwo.defaultProps = {
-	color: Colors.CINZA_ESCURO,
-};

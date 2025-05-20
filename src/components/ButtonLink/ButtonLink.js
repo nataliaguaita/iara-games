@@ -13,6 +13,7 @@ export const ButtonLink = styled.a`
 	font-family: ${FontFamilies.PRIMARY};
 	font-weight: ${FontWeights.BOLD};
     font-size: ${FontSizes.ONE_QUARTER};
+	text-decoration: underline;
 	color: ${Colors.BRANCO};
 	padding: ${Spaces.ONE} ${Spaces.ONE};
 	cursor: pointer;

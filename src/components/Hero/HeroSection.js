@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { HeadingOne } from '../HeadingOne/HeadingOne';
 import { Description } from '../Description/Description';
 import { Button } from '../Button/Button';
-import backgroundImage from '../../assets/images/main-banner.png';
+import backgroundImage from '../../assets/images/herobanner.png';
 
 const HeroSectionStyled = styled.section`
     width: auto;
@@ -17,7 +17,7 @@ const HeroSectionStyled = styled.section`
     align-items: flex-start;
     text-align: left;
     padding: ${Spaces.FOUR};
-    color: ${Colors.CINZA_ESCURO};
+    color: ${Colors.BRANCO};
 `
 const ContentWrapper = styled.div`
 	display: flex;
@@ -35,7 +35,7 @@ export function HeroSection() {
             <HeadingOne>Iara Games, o seu destino para jogos nacionais!</HeadingOne>
             <Description>Acreditamos na criatividade do nosso povo, e queremos que você tenha a oportunidade de explorar isso através
             de nossos jogos.</Description>
-            <Button>Explorar Jogos</Button>
+            <Button >Explorar Jogos</Button>
         </ContentWrapper>
     </HeroSectionStyled>
     );

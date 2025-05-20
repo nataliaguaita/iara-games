@@ -1,119 +1,110 @@
-import { useRef } from 'react';
-import styled from 'styled-components';
+import React, { useRef, useEffect } from 'react';
+import { Box, IconButton } from '@mui/material';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { GameCard } from '../Card/GameCard';
-import { Colors, FontFamilies, FontWeights, FontLineHeights,FontLetterSpacings, FontSizes, Shadows, Spaces } from '../../shared/DesignTokens';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import jogo1 from '../../assets/images/j01.jpg';
+import jogo2 from '../../assets/images/j02.jpg';
+import jogo3 from '../../assets/images/j03.png';
+import jogo4 from '../../assets/images/j04.avif';
+import jogo5 from '../../assets/images/j05.png';
+import { HeadingTwo } from '../HeadingTwo/HeadingTwo';
 
-import jogo1 from '../../assets/images/jogo1.jpg';
-import jogo2 from '../../assets/images/jogo2.jpeg';
 
-const CarouselContainer = styled.section`
-    position: relative;
-    overflow-x: auto;
-    display: flex;
-    // margin: 0px 100px 30px 100px;
-    gap: ${Spaces.TWO};
-    padding: ${Spaces.FOUR};
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-
-    &::-webkit-scrollbar {
-        display: none;
-    }
-`;
-
-const ButtonNav = styled.button`
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: white;
-    border: none;
-    border-radius: 50%;
-    padding: 8px;
-    box-shadow: ${Shadows.ONE};
-    cursor: pointer;
-    z-index: 2;
-
-    &:hover {
-        background: ${Colors.BRANCO};
-    }
-
-    &.left {
-        left: 10px;
-    }
-
-    &.right {
-        right: 10px;
-    }
-`;
-
-const games = [
-    { title: 'Aventura na Selva', image: jogo1, price: '29,90', rating: 4 },
-    { title: 'Mistério Urbano', image: jogo2, price: '39,90', rating: 5 },
-    { title: 'Aventura na Selva', image: jogo1, price: '29,90', rating: 4 },
-    { title: 'Mistério Urbano', image: jogo2, price: '39,90', rating: 5 },
-    { title: 'Aventura na Selva', image: jogo1, price: '29,90', rating: 4 },
-    { title: 'Mistério Urbano', image: jogo2, price: '39,90', rating: 5 },
-    { title: 'Aventura na Selva', image: jogo1, price: '29,90', rating: 4 },
-    { title: 'Mistério Urbano', image: jogo2, price: '39,90', rating: 5 },
-    { title: 'Aventura na Selva', image: jogo1, price: '29,90', rating: 4 },
-    { title: 'Mistério Urbano', image: jogo2, price: '39,90', rating: 5 },
+const originalGames = [
+    { title: 'Knights of Pen & Paper 2', image: jogo1, price: '75,45', rating: 4 },
+    { title: 'Aritana e a Pena da Harpia', image: jogo2, price: '36,70', rating: 5 },
+    { title: 'No Place for Bravery', image: jogo3, price: '29,60', rating: 3 },
+    { title: 'Dandara Trials of Fear Edition', image: jogo4, price: '36,67', rating: 5 },
+    { title: 'Chroma Squad', image: jogo5, price: '59,99', rating: 4 },
 ];
 
-const TitleSection = styled.h2`
-    font-family: ${FontFamilies.PRIMARY};
-    font-weight: ${FontWeights.BOLD};
-    line-height: ${FontLineHeights.MEDIUM};
-    font-size: ${FontSizes.THREE};
-    color: ${(props) => props.color};
-    margin: 30px 0 0 0;
-`;
 
-const DescriptionSection = styled.h3`
-    font-family: ${FontFamilies.PRIMARY};
-    font-weight: ${FontWeights.REGULAR};
-    line-height: ${FontLineHeights.SMALL};
-    font-size: ${FontSizes.TWO};
-    color: ${(props) => props.color};
-    margin-botton: 10px;
-    margin-top: 0;
-    letter-spacing: ${FontLetterSpacings.MEDIUM};
-`;
+// Cria a sequência [original, original, original] para looping
+const games = [...originalGames, ...originalGames, ...originalGames];
 
-const SectionWrapper = styled.div`
-    margin: 0 100px 30px 100px;
-`;
-
-export function GameCarousel() {
+export default function GameCarousel() {
     const carouselRef = useRef(null);
+    const CARD_WIDTH = 700;
+    const PADDING = 4 * 8; // 4 unidades do MUI spacing (px={4})
+    const middleIndex = originalGames.length;
+
+    useEffect(() => {
+        // Posiciona o scroll no início da "segunda" sequência para looping
+        const scrollToMiddle = () => {
+            if (carouselRef.current) {
+                carouselRef.current.scrollLeft = (CARD_WIDTH + 16) * middleIndex;
+            }
+        };
+        scrollToMiddle();
+    }, []);
+
+    const handleScroll = () => {
+        const node = carouselRef.current;
+        const maxScroll = (CARD_WIDTH + 16) * (games.length - middleIndex);
+        if (node.scrollLeft <= 0) {
+            node.scrollLeft = maxScroll - CARD_WIDTH;
+        } else if (node.scrollLeft >= maxScroll) {
+            node.scrollLeft = CARD_WIDTH;
+        }
+    };
 
     const scroll = (direction) => {
-        const scrollAmount = 250;
-        if (carouselRef.current) {
-            carouselRef.current.scrollBy({
-                left: direction === 'left' ? -scrollAmount : scrollAmount,
+        const node = carouselRef.current;
+        if (node) {
+            node.scrollBy({
+                left: direction === 'left' ? -CARD_WIDTH : CARD_WIDTH,
                 behavior: 'smooth',
             });
         }
     };
 
     return (
-        <div style={{ position: 'relative' }}>
-            <SectionWrapper>
-                <TitleSection>Em Destaque</TitleSection>
-                <DescriptionSection>Os jogos mais populares do momento!</DescriptionSection>
-                <ButtonNav className="left" onClick={() => scroll('left')}>
-                    <ChevronLeft />
-                </ButtonNav>
-                <CarouselContainer ref={carouselRef}>
+        <Box my="100px" mx="auto" width="100%"> 
+            <Box my="100px" position="relative" width="100%" overflow="hidden" px={10}>
+            <HeadingTwo>JOGOS EM DESTAQUE</HeadingTwo>
+                <IconButton
+                    onClick={() => scroll('left')}
+                    sx={{ position: 'absolute', left: 20, top: '50%', transform: 'translateY(-50%)', zIndex: 1, bgcolor: 'white', boxShadow: 2 }}
+                >
+                    <ChevronLeftIcon />
+                </IconButton>
+
+                <Box
+                    ref={carouselRef}
+                    onScroll={handleScroll}
+                    sx={{
+                        display: 'flex',
+                        overflowX: 'auto',
+                        scrollSnapType: 'x mandatory',
+                        gap: 2,
+                        px: `calc(50% - ${CARD_WIDTH / 2}px)`,
+                        scrollBehavior: 'smooth',
+                        '&::-webkit-scrollbar': { display: 'none' },
+                    }}
+                >
                     {games.map((game, index) => (
-                        <GameCard key={index} {...game} />
+                        <Box
+                            key={index}
+                            sx={{
+                                width: `${CARD_WIDTH}px`,
+                                height: '518px',
+                                flexShrink: 0,
+                                scrollSnapAlign: 'center',
+                            }}
+                        >
+                            <GameCard {...game} />
+                        </Box>
                     ))}
-                </CarouselContainer>
-                <ButtonNav className="right" onClick={() => scroll('right')}>
-                    <ChevronRight />
-                </ButtonNav>
-            </SectionWrapper>
-        </div>
+                </Box>
+
+                <IconButton
+                    onClick={() => scroll('right')}
+                    sx={{ position: 'absolute', right: 20, top: '50%', transform: 'translateY(-50%)', zIndex: 1, bgcolor: 'white', boxShadow: 2 }}
+                >
+                    <ChevronRightIcon />
+                </IconButton>
+            </Box>
+        </Box>
     );
 }
