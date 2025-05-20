@@ -1,40 +1,77 @@
 
 import React, { useEffect, useState } from "react";
-import { Box, Typography, Button, IconButton, Stack, CardMedia } from "@mui/material";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import styled from "styled-components";
+import { Colors, Spaces, FontSizes, FontWeights, Shadows, BorderRadiuses } from "../../shared/DesignTokens";
+import { Box, Typography, IconButton, Stack, CardMedia } from "@mui/material";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { HeadingTwo } from "../HeadingTwo/HeadingTwo";
+import jogo1 from '../../assets/images/j01.jpg';
+import jogo2 from '../../assets/images/j02.jpg';
+import jogo3 from '../../assets/images/j03.png';
+import jogo4 from '../../assets/images/j04.avif';
+import jogo5 from '../../assets/images/j05.png';
+import { Gradient } from "../../shared/DesignTokens";
+import { ButtonLink } from "../ButtonLink/ButtonLink";
+import { LikeButton } from "../Button/LikedButton";
 
 const games = [
     {
         title: "Chroma Squad",
         rating: 4,
         description:
-            "Chroma Squad é um RPG tático sobre cinco dublês que decidem sair de seus trabalhos e criar o seu próprio estúdio de TV inspirado em Power Rangers!",
+            "Chroma Squad é um RPG tático sobre cinco dublês que decidem sair de seus trabalhos e criar o seu próprio estúdio de TV inspirado em Power Rangers! Contrate atores, compre equipamentos e melhorias para o seu estúdio, crie armas e robôs gigantes feitos de papelão e fita crepe.",
         price: "R$ 59,99",
-        image: "/images/chroma-squad.png",
+        image: jogo5,
     },
     {
         title: "No Place for Bravery",
-        rating: 5,
-        description: "Um jogo de ação e narrativa intensa com visual pixel art impressionante.",
-        price: "R$ 49,99",
-        image: "/images/no-place.png",
-    },
-    {
-        title: "Arida",
         rating: 3,
-        description: "Sobrevivência e aventura no sertão brasileiro.",
-        price: "R$ 39,99",
-        image: "/images/arida.png",
+        description: "Thorn, um velho e ambicioso guerreiro, perambula por um mundo devastado pela guerra em busca de sua filha perdida. Sobreviva às batalhas desenfreadas e violentas neste RPG de ação 2D com visão de cima, e descubra a história arrepiante por trás da odisseia de Thorn.",
+        price: "R$ 29,60",
+        image: jogo3,
     },
     {
-        title: "Knights of Pen & Paper II",
+        title: "Aritana e a Pena da Harpia",
+        rating: 5,
+        description: "Aritana e a Pena da Harpia é um jogo de plataforma 2.5D com inovadora mecânica de posturas e sistema de combos. Corra contra o tempo, enfrente os desafios da Montanha da Harpia, enfrente os Espíritos da Floresta e entre nas terras do temível Mapinguari.",
+        price: "R$ 39,99",
+        image: jogo2,
+    },
+    {
+        title: "Knights of Pen & Paper 2",
         rating: 4,
-        description: "Um RPG retrô com muito humor e nostalgia de mesa.",
-        price: "R$ 19,99",
-        image: "/images/knights.png",
+        description: "Prepare-se para habitar um mundo de cavalheirismo, luta de classes e referências pop excêntricas. Knights of Pen & Paper 2 é uma aventura em turnos, estilo retrô, pixel-art, repleta de perigos, intrigas, mortes e testes de resistência!",
+        price: "R$ 75,45",
+        image: jogo1,
     },
 ];
+
+const Button = styled.button`
+    width: 100%;
+    height: 40px;
+    background: ${Gradient.BR};
+    color: ${Colors.BRANCO};
+    border: none;
+    border-radius: ${BorderRadiuses.TWO};
+    padding: ${Spaces.ONE} ${Spaces.TWO};
+    cursor: pointer;
+    font-size: ${FontSizes.TWO};
+    font-weight: ${FontWeights.BOLD};
+    box-shadow: ${Shadows.ONE};
+    margin-top: ${Spaces.TWO};
+    margin-right: ${Spaces.TWO};
+    transition: background-color 0.3s;
+
+    &:hover {
+        background: ${Colors.AZUL_ESCURO};
+    }
+`;
+
+const ButtonWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
 
 const DestaqueCarousel = () => {
     const [index, setIndex] = useState(0);
@@ -43,22 +80,22 @@ const DestaqueCarousel = () => {
     useEffect(() => {
         const timer = setInterval(() => {
             setIndex((prev) => (prev + 1) % games.length);
-        }, 3000);
+        }, 7000);
         return () => clearInterval(timer);
     }, []);
 
     return (
-        <Box sx={{ backgroundColor: "#121212", p: 4, color: "#fff" }}>
-            <Typography variant="subtitle2" color="gray" mb={2}>
-                JOGOS MAIS VENDIDOS
-            </Typography>
+        <Box sx={{ p: 10, color: "#fff" }}>
+            <Box sx={{ mb: "50px" }}>
+                <HeadingTwo>JOGOS MAIS VENDIDOS</HeadingTwo>
+            </Box>
+
 
             <Box
                 sx={{
                     display: "flex",
                     flexDirection: { xs: "column", md: "row" },
-                    backgroundColor: "#1e1e1e",
-                    borderRadius: 2,
+                    borderRadius: 1,
                     overflow: "hidden",
                 }}
             >
@@ -66,11 +103,17 @@ const DestaqueCarousel = () => {
                     component="img"
                     image={currentGame.image}
                     alt={currentGame.title}
-                    sx={{ width: { xs: "100%", md: "50%" }, objectFit: "cover" }}
+                    sx={{
+                        width: 700,
+                        height: 400,
+                        objectFit: "cover",
+                        flexShrink: 0, // impede de encolher
+                        borderRadius: 2,
+                    }}
                 />
                 <Box sx={{ p: 3, display: "flex", flexDirection: "column", justifyContent: "space-between", flex: 1 }}>
                     <Box>
-                        <Typography variant="h5" fontWeight="bold" gutterBottom>
+                        <Typography variant="h3" fontWeight="bold" gutterBottom>
                             {currentGame.title}
                         </Typography>
                         <Box sx={{ display: "flex", gap: 0.5, mb: 1 }}>
@@ -78,33 +121,31 @@ const DestaqueCarousel = () => {
                                 <span key={i}>⭐</span>
                             ))}
                         </Box>
-                        <Typography variant="body2" color="gray" mb={2}>
+                        <Typography variant="body1" sx={{ fontSize: 15 }} color="gray" mb={2}>
                             {currentGame.description}
                         </Typography>
-                        <Button variant="text" sx={{ fontSize: 12, color: "#aaa", textTransform: "none" }}>
+                        <ButtonLink variant="text" sx={{ fontSize: 12, color: "#aaa", textTransform: "none", textDecoration: "underline", }}>
                             VER AVALIAÇÕES
-                        </Button>
+                        </ButtonLink>
                     </Box>
                     <Box sx={{ mt: 3, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                        <Typography variant="h6" color="gold">
+                        <Typography variant="h3" color={Colors.AMARELO_ESCURO} fontWeight="bold">
                             {currentGame.price}
                         </Typography>
-                        <Stack direction="row" spacing={2}>
+                        <ButtonWrapper>
                             <Button
                                 variant="contained"
-                                startIcon={<ShoppingCartIcon />}
+
                                 sx={{
-                                    background: "linear-gradient(to right, #0052D4, #00c851)",
+                                    background: Gradient.BR,
                                     textTransform: "none",
                                     borderRadius: 2,
                                 }}
                             >
                                 Adicionar ao Carrinho
                             </Button>
-                            <IconButton sx={{ color: "#fff" }}>
-                                <FavoriteBorderIcon />
-                            </IconButton>
-                        </Stack>
+                            <LikeButton />
+                        </ButtonWrapper>
                     </Box>
                 </Box>
             </Box>
