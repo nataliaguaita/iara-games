@@ -32,6 +32,7 @@ export const FontSizes = {
 	ONE_HALF: '12px',
 	ONE_QUARTER: '14px',
 	TWO: '16px',
+	TWO_HALF: '18px',
 	THREE: '24px',
 	FOUR: '32px',
 	FIVE: '40px',
@@ -41,10 +42,11 @@ export const FontWeights = {
 	REGULAR: 400,
 	BOLD: 600,
 	EXTRA_BOLD: 750,
+	BLACK: 900,
 };
 export const Spaces = {
 	NONE: '0',
-	HALF: '4px',
+	HALF: 'px',
 	ONE: '8px',
 	ONE_HALF: '12px',
 	TWO: '16px',

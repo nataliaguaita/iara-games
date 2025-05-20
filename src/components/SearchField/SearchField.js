@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 	gap: ${Spaces.TWO};
 	padding: ${Spaces.NONE} ${Spaces.TWO};
 	border:2px solid ${Colors.BRANCO};
-	border-radius: ${BorderRadiuses.ONE};
+	border-radius: ${BorderRadiuses.TWO};
 	height: 35px;
 `;
 const Icon = styled.img.attrs({

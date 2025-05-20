@@ -16,5 +16,5 @@ export const HeadingOne = styled.h1`
 	padding: 0;
 `;
 HeadingOne.defaultProps = {
-	color: Colors.CINZA_ESCURO,
+	color: Colors.BRANCO,
 };

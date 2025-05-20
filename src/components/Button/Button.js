@@ -24,7 +24,7 @@ const ButtonStyled = styled.button`
         props.ghost ? Colors.VERDE_CLARO : Colors.AMARELO_ESCURO};
 	color: ${Colors.CINZA_ESCURO};
 	box-shadow: ${Shadows.ONE};
-	border-radius: ${BorderRadiuses.ONE};
+	border-radius: ${BorderRadiuses.TWO};
 	padding: ${Spaces.ONE} ${Spaces.TWO};
 	cursor: pointer;
 	transition: 200ms all ease;

@@ -18,5 +18,5 @@ export const Description = styled.span`
 	letter-spacing: ${FontLetterSpacings.MEDIUM};
 `;
 Description.defaultProps = {
-	color: Colors.CINZA_ESCURO,
+	color: Colors.CINZA_MEDIO,
 };
