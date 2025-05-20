@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { PlayerAuthPage } from './screens/PlayerAuthPage';
 import { DevAuthPage } from './screens/DevAuthPage';
 import { NotFound } from './screens/NotFound';
+import { SuccessPage } from './screens/SuccessPage';
 import { Home } from './screens/Home';
 import { NormalizeStyles } from './shared/NomalizeStyles';
 import { NavBar } from './components/NavBar/NavBar';
@@ -22,6 +23,7 @@ export function App() {
             <Route path="/register/player" element={<PlayerAuthPage />} />
             <Route path="/login/dev" element={<DevAuthPage />} />
             <Route path="/register/dev" element={<DevAuthPage />} />
+            <Route path="/login/player/success" element={<SuccessPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         <Footer />

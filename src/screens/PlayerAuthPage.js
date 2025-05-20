@@ -52,23 +52,23 @@ const CustomTabs = styled(Tabs)`
 `;
 
 const CustomTab = styled((props) => <Tab disableRipple {...props} />)`
-  && {
-    font-size: 16px !important;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-  }
+    && {
+        font-size: 16px !important;
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+    }
 
-  &:hover {
-    background: ${Gradient.BR};
-  }
+    &:hover {
+        background: ${Gradient.BR};
+    }
 
-  &.Mui-selected {
-    color: ${Colors.BRANCO};
-    background: ${Colors.CINZA_MEDIO};
-  }
-`;
+    &.Mui-selected {
+        color: ${Colors.BRANCO};
+        background: ${Colors.CINZA_MEDIO};
+    }
+    `;
 
 export function PlayerAuthPage() {
     const location = useLocation();
