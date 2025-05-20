@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import styled from "styled-components";
-import { Colors, FontWeights, BorderRadiuses, Gradient, Spaces, FontSizes, Shadows } from "../../shared/DesignTokens";
+import { Colors, FontWeights, BorderRadiuses, Spaces, FontSizes, Shadows } from "../../shared/DesignTokens";
 // import { Button } from "../Button/Button";
 
 const SectionWrapper = styled(Box)`

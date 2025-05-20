@@ -1,6 +1,6 @@
 import { Box, Typography, Grid } from '@mui/material';
 import styled from 'styled-components';
-import { Colors, Gradient } from '../../shared/DesignTokens';
+import { Gradient } from '../../shared/DesignTokens';
 import ManifestoMap from '../../assets/images/manifestmap.png';
 import { HeadingTwo } from '../HeadingTwo/HeadingTwo';
 

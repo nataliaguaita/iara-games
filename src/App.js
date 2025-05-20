@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Search } from './screens/Search';
+import { PlayerAuthPage } from './screens/PlayerAuthPage';
+import { DevLogin} from './screens/DevLogin';
 import { NotFound } from './screens/NotFound';
 import { Home } from './screens/Home';
 import { NormalizeStyles } from './shared/NomalizeStyles';
@@ -17,7 +18,8 @@ export function App() {
         <NavBar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/pesquisa" element={<Search />} />
+            <Route path="/login/usuario" element={<PlayerAuthPage />} />
+            <Route path="/login/dev" element={<DevLogin />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         <Footer />

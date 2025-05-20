@@ -25,8 +25,7 @@ const games = [...originalGames, ...originalGames, ...originalGames];
 
 export default function GameCarousel() {
     const carouselRef = useRef(null);
-    const CARD_WIDTH = 700;
-    const PADDING = 4 * 8; // 4 unidades do MUI spacing (px={4})
+    const CARD_WIDTH = 700; // 4 unidades do MUI spacing (px={4})
     const middleIndex = originalGames.length;
 
     useEffect(() => {
@@ -37,7 +36,7 @@ export default function GameCarousel() {
             }
         };
         scrollToMiddle();
-    }, []);
+    }, [middleIndex]);
 
     const handleScroll = () => {
         const node = carouselRef.current;

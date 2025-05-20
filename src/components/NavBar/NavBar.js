@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Colors, Spaces } from '../../shared/DesignTokens';
 import IaraGamesLogo from '../../assets/images/logo-branco-iara.png';
-import { BuyButton, UserButton } from '../Button/Button';
+import { BuyButton } from '../Button/Button';
 import { LinkNavBar } from '../ButtonLink/LinkNavBar';
 import { SearchField } from '../SearchField/SearchField';
 import { LoginMenu } from '../Menu/LoginMenu';

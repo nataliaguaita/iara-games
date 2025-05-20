@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Grid, Link } from '@mui/material';
+import { Box, Typography, Grid } from '@mui/material';
 import styled from 'styled-components';
 import { Colors } from '../../shared/DesignTokens'; // ajuste conforme seu caminho
 

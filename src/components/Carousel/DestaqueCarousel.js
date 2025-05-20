@@ -2,13 +2,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Colors, Spaces, FontSizes, FontWeights, Shadows, BorderRadiuses } from "../../shared/DesignTokens";
-import { Box, Typography, IconButton, Stack, CardMedia } from "@mui/material";
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { Box, Typography, CardMedia } from "@mui/material";
 import { HeadingTwo } from "../HeadingTwo/HeadingTwo";
 import jogo1 from '../../assets/images/j01.jpg';
 import jogo2 from '../../assets/images/j02.jpg';
 import jogo3 from '../../assets/images/j03.png';
-import jogo4 from '../../assets/images/j04.avif';
 import jogo5 from '../../assets/images/j05.png';
 import { Gradient } from "../../shared/DesignTokens";
 import { ButtonLink } from "../ButtonLink/ButtonLink";

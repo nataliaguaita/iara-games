@@ -82,7 +82,7 @@ export function LoginMenu() {
 
 	return (
 		<>
-			<ButtonStyled onClick={handleClick}>
+			<ButtonStyled ghost onClick={handleClick}>
 				<Icon src={UserIconImg} alt="ícone de usuário" />
 				Login
 			</ButtonStyled>
